@@ -1,0 +1,27 @@
+{
+  "name": "TranslationHistory",
+  "type": "object",
+  "properties": {
+    "source_text": {
+      "type": "string",
+      "description": "The original text input"
+    },
+    "translated_text": {
+      "type": "string",
+      "description": "The translated output"
+    },
+    "direction": {
+      "type": "string",
+      "enum": [
+        "gloss_to_portuguese",
+        "portuguese_to_gloss"
+      ],
+      "description": "Translation direction"
+    }
+  },
+  "required": [
+    "source_text",
+    "translated_text",
+    "direction"
+  ]
+}

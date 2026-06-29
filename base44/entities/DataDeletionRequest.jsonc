@@ -1,0 +1,31 @@
+{
+  "name": "DataDeletionRequest",
+  "type": "object",
+  "properties": {
+    "user_email": {
+      "type": "string",
+      "description": "Email of the user requesting deletion"
+    },
+    "reason": {
+      "type": "string",
+      "description": "Reason for requesting data deletion"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "processing",
+        "completed"
+      ],
+      "default": "pending"
+    },
+    "processed_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "user_email",
+    "status"
+  ]
+}

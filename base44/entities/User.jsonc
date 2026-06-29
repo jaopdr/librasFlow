@@ -1,0 +1,21 @@
+{
+  "name": "User",
+  "type": "object",
+  "properties": {
+    "role": {
+      "type": "string",
+      "enum": [
+        "contributor",
+        "curator",
+        "admin"
+      ],
+      "default": "contributor",
+      "description": "User role in the platform"
+    },
+    "is_active": {
+      "type": "boolean",
+      "default": true,
+      "description": "Whether the user account is active (false = soft-deleted by admin)"
+    }
+  }
+}

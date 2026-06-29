@@ -1,0 +1,179 @@
+{
+  "name": "Sign",
+  "type": "object",
+  "properties": {
+    "portuguese_word": {
+      "type": "string",
+      "description": "The Portuguese translation of the sign"
+    },
+    "description": {
+      "type": "string",
+      "description": "Detailed description of how to perform the sign"
+    },
+    "regional_variation": {
+      "type": "string",
+      "enum": [
+        "Nacional",
+        "Norte",
+        "Nordeste",
+        "Centro-Oeste",
+        "Sudeste",
+        "Sul",
+        "AC",
+        "AL",
+        "AP",
+        "AM",
+        "BA",
+        "CE",
+        "DF",
+        "ES",
+        "GO",
+        "MA",
+        "MT",
+        "MS",
+        "MG",
+        "PA",
+        "PB",
+        "PR",
+        "PE",
+        "PI",
+        "RJ",
+        "RN",
+        "RS",
+        "RO",
+        "RR",
+        "SC",
+        "SP",
+        "SE",
+        "TO"
+      ],
+      "description": "State or region in Brazil where this sign variation is used"
+    },
+    "articulation_point": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Primary parameter: where the sign is articulated"
+    },
+    "hand_configuration": {
+      "type": "string",
+      "description": "Primary parameter: the shape/configuration of the hand"
+    },
+    "hand_disposition": {
+      "type": "string",
+      "enum": [
+        "Paralela",
+        "Cruzada",
+        "Entrela\u00e7ada",
+        "Uma sobre a outra",
+        "Uma ao lado da outra",
+        "N/A"
+      ],
+      "description": "Secondary parameter: how the hands are arranged"
+    },
+    "hand_orientation": {
+      "type": "string",
+      "enum": [
+        "Para cima",
+        "Para baixo",
+        "Para frente",
+        "Para tr\u00e1s",
+        "Para dentro",
+        "Para fora",
+        "N/A"
+      ],
+      "description": "Secondary parameter: direction the palm faces"
+    },
+    "contact_region": {
+      "type": "string",
+      "description": "Secondary parameter: where the hand makes contact"
+    },
+    "non_manual_components": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Facial and body expressions that accompany the sign"
+    },
+    "sign_classification": {
+      "type": "string",
+      "enum": [
+        "Uma m\u00e3o",
+        "Duas m\u00e3os - movimentos diferentes",
+        "Duas m\u00e3os - movimentos iguais",
+        "Movimento facial"
+      ],
+      "description": "Classification of the sign type"
+    },
+    "video_url": {
+      "type": "string",
+      "description": "URL to the uploaded video demonstrating the sign (MP4/WebM)"
+    },
+    "hand_photo_url": {
+      "type": "string",
+      "description": "URL to the uploaded photo showing the hand configuration (MANDATORY)"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "approved",
+        "rejected"
+      ],
+      "default": "pending",
+      "description": "Approval workflow status"
+    },
+    "review_notes": {
+      "type": "string",
+      "description": "Notes from the curator during review"
+    },
+    "reviewed_by": {
+      "type": "string",
+      "description": "ID of the curator who reviewed this sign"
+    },
+    "reviewed_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When the sign was reviewed"
+    },
+    "lgpd_consent": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether LGPD consent was given for the video"
+    },
+    "is_minor": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether the signer in the video is a minor"
+    },
+    "guardian_name": {
+      "type": "string",
+      "description": "Guardian name if signer is a minor"
+    },
+    "guardian_cpf": {
+      "type": "string",
+      "description": "Guardian CPF if signer is a minor"
+    },
+    "categories": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Categories this sign belongs to"
+    },
+    "synonyms": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Other Portuguese words that map to this sign"
+    }
+  },
+  "required": [
+    "portuguese_word",
+    "sign_classification",
+    "status",
+    "hand_photo_url"
+  ]
+}
