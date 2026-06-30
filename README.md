@@ -2,6 +2,32 @@
 
 LibrasFlow é uma aplicação web colaborativa para tradução e catalogação de sinais de **Libras** (Língua Brasileira de Sinais). A plataforma permite que usuários consultem um dicionário de sinais, traduzam palavras do português para Libras e contribuam com novos sinais — incluindo suas variações regionais — através de um fluxo de curadoria.
 
+## 👥 Equipe e Divisão de Atividades
+
+### Lucca Mateo Rangel — Engenharia de Requisitos
+- Levantamento e especificação dos requisitos funcionais e não funcionais do sistema (tradução de sinais, dicionário de Libras, envio e curadoria de sinais, autenticação de usuários).
+- Definição das regras de negócio relacionadas à conformidade com a **LGPD**, incluindo consentimento de uso de imagem/vídeo, tratamento de dados de menores de idade (autorização de responsável legal) e fluxo de solicitação de exclusão de dados.
+- Elicitação dos casos de uso por perfil de usuário (usuário comum, curador, administrador).
+- Documentação dos critérios de aceite para as funcionalidades de tradução, submissão e aprovação/rejeição de sinais.
+
+### Matheus Cesconetto — Modelagem de Software
+- Modelagem das entidades de domínio do sistema (`Sign`, `User`, `TranslationHistory`, `DataDeletionRequest`) e seus atributos, tipos e relacionamentos.
+- Definição da estrutura de dados de cada sinal, contemplando parâmetros linguísticos da Libras (configuração de mão, ponto de articulação, orientação, disposição das mãos, região de contato, componentes não manuais e classificação do sinal).
+- Modelagem do fluxo de estados do processo de curadoria (`pending`, `approved`, `rejected`).
+- Elaboração de diagramas (casos de uso, classes/entidades e fluxo de dados) representando a arquitetura conceitual da aplicação.
+
+### João Pedro Espindola Sezerino — Projeto de Software
+- Definição da arquitetura técnica da aplicação, com base em React, Vite e integração com o backend-as-a-service Base44.
+- Estruturação do projeto em camadas (`pages`, `components`, `api`, `hooks`, `lib`, `utils`) e definição dos padrões de organização do código.
+- Especificação da integração entre frontend e backend via `@base44/sdk`, incluindo autenticação, persistência das entidades e armazenamento de mídia (vídeos e fotos dos sinais).
+- Decisões de design técnico quanto a roteamento (React Router), gerenciamento de estado assíncrono (TanStack Query), validação de formulários (React Hook Form + Zod) e biblioteca de componentes de interface (Radix UI / shadcn).
+
+### Guilherme Wippel Kormann — Desenvolvimento Colaborativo
+- Implementação das funcionalidades em conjunto com a equipe, seguindo as convenções definidas no projeto de software.
+- Desenvolvimento e manutenção do versionamento colaborativo do código-fonte (controle de branches, revisão de código e integração das contribuições da equipe).
+- Apoio na implementação das páginas da aplicação (Tradutor, Dicionário de Sinais, Envio de Sinais, Curadoria, Administração e Conta do Usuário).
+- Testes de integração entre as funcionalidades desenvolvidas pelos diferentes membros da equipe, garantindo consistência entre requisitos, modelo de dados e arquitetura definidos.
+
 ## ✨ Funcionalidades
 
 - **Tradutor**: tradução de palavras/expressões em português para o sinal correspondente em Libras.
