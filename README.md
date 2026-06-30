@@ -4,29 +4,32 @@ LibrasFlow é uma aplicação web colaborativa para tradução e catalogação d
 
 ## 👥 Equipe e Divisão de Atividades
 
+Este projeto foi desenvolvido para a disciplina *AMS0002 – Análise e Modelagem de Sistemas* (UDESC), com base no relatório técnico "Análise, Modelagem e Especificação de um Sistema Colaborativo e Inclusivo para o Dicionário da Língua Brasileira de Sinais".
+
 ### Luca Mateo Rangel — Engenharia de Requisitos
-- Levantamento e especificação dos requisitos funcionais e não funcionais do sistema (tradução de sinais, dicionário de Libras, envio e curadoria de sinais, autenticação de usuários).
-- Definição das regras de negócio relacionadas à conformidade com a **LGPD**, incluindo consentimento de uso de imagem/vídeo, tratamento de dados de menores de idade (autorização de responsável legal) e fluxo de solicitação de exclusão de dados.
-- Elicitação dos casos de uso por perfil de usuário (usuário comum, curador, administrador).
-- Documentação dos critérios de aceite para as funcionalidades de tradução, submissão e aprovação/rejeição de sinais.
+- Identificação dos quatro perfis hierárquicos de usuário (Visitante, Colaborador/Sinalizante, Curador/Linguista e Administrador) e suas respectivas histórias de usuário.
+- Elicitação dos Requisitos Funcionais (RF01–RF07), cobrindo dicionário e tradução por IA, submissão detalhada de sinais, modelagem gramatical da Libras, gestão de mídia dupla (foto + vídeo), workflow de curadoria, manutenção do dicionário e gestão administrativa de contas.
+- Definição dos Requisitos Não-Funcionais (RNF01–RNF04) com métricas quantificáveis: limites de upload (50MB vídeo / 10MB foto, processamento em até 15s), latência de busca (≤800ms), tempo de exibição de notificações (3s) e responsividade a partir de 320px.
+- Especificação da conformidade normativa com *WCAG 2.1 (Nível AA)* e *LGPD*, incluindo TCLE, tratamento de dados de menores (nome e CPF do responsável legal) e direito ao esquecimento via exclusão em cascata.
+- Estruturação do caso de uso "Submeter Novo Sinal ao Dicionário", com fluxo principal e fluxos alternativos (menor de idade, falha de validação de mídia, ausência de consentimento).
 
 ### Matheus Cesconetto — Modelagem de Software
-- Modelagem das entidades de domínio do sistema (`Sign`, `User`, `TranslationHistory`, `DataDeletionRequest`) e seus atributos, tipos e relacionamentos.
-- Definição da estrutura de dados de cada sinal, contemplando parâmetros linguísticos da Libras (configuração de mão, ponto de articulação, orientação, disposição das mãos, região de contato, componentes não manuais e classificação do sinal).
-- Modelagem do fluxo de estados do processo de curadoria (`pending`, `approved`, `rejected`).
-- Elaboração de diagramas (casos de uso, classes/entidades e fluxo de dados) representando a arquitetura conceitual da aplicação.
+- Elaboração do *Diagrama de Classes*, definindo a hierarquia de generalização entre Usuario (abstrata), Colaborador, Curador e Administrador, e a entidade central Sinal com seus relacionamentos de composição com ParametroPrimario e ParametroSecundario.
+- Modelagem das enumerações linguísticas (ComponenteNaoManual, DisposicaoMao, StatusSinal, TipoSinal), garantindo que os parâmetros gramaticais da Libras sejam restritos a categorias controladas.
+- Elaboração do *Diagrama de Atividades*, organizado em raias (Colaborador, Curador/Administrador, Usuário Comum), detalhando o fluxo completo de submissão, validação de arquivos, tratamento de menores de idade, aceite do TCLE e decisão de aprovação/rejeição.
+- Elaboração do *Diagrama de Sequência*, representando a interação síncrona entre Colaborador, Interface, GerenciadorDeSinais e Banco de Dados durante a submissão, e a fase assíncrona de moderação pelo Curador.
 
 ### João Pedro Espindola Sezerino — Projeto de Software
-- Definição da arquitetura técnica da aplicação, com base em React, Vite e integração com o backend-as-a-service Base44.
-- Estruturação do projeto em camadas (`pages`, `components`, `api`, `hooks`, `lib`, `utils`) e definição dos padrões de organização do código.
-- Especificação da integração entre frontend e backend via `@base44/sdk`, incluindo autenticação, persistência das entidades e armazenamento de mídia (vídeos e fotos dos sinais).
-- Decisões de design técnico quanto a roteamento (React Router), gerenciamento de estado assíncrono (TanStack Query), validação de formulários (React Hook Form + Zod) e biblioteca de componentes de interface (Radix UI / shadcn).
+- Definição e justificativa da arquitetura adotada: *Arquitetura em Camadas (Layered Architecture)* integrada ao padrão *MVC*.
+- Especificação das quatro camadas do sistema — Apresentação (View), Controle e Aplicação, Domínio e Serviços, e Infraestrutura/Acesso a Dados — e suas responsabilidades isoladas.
+- Elaboração da Matriz de Justificativas Técnicas, correlacionando os desafios do projeto (complexidade gramatical da Libras, fluxo de aprovação de mídia, armazenamento escalável, conformidade com a LGPD) às soluções arquiteturais e seus impactos (manutenibilidade, confiabilidade, escalabilidade e segurança jurídica).
+- Detalhamento dos impactos da arquitetura no sucesso do projeto: manutenibilidade e evolução tecnológica, robustez e segurança do fluxo de moderação, e estratégia de persistência/escalabilidade de mídia (separação entre banco relacional e armazenamento em buckets).
 
 ### Guilherme Wippel Kormann — Desenvolvimento Colaborativo
-- Implementação das funcionalidades em conjunto com a equipe, seguindo as convenções definidas no projeto de software.
-- Desenvolvimento e manutenção do versionamento colaborativo do código-fonte (controle de branches, revisão de código e integração das contribuições da equipe).
-- Apoio na implementação das páginas da aplicação (Tradutor, Dicionário de Sinais, Envio de Sinais, Curadoria, Administração e Conta do Usuário).
-- Testes de integração entre as funcionalidades desenvolvidas pelos diferentes membros da equipe, garantindo consistência entre requisitos, modelo de dados e arquitetura definidos.
+- Estabelecimento do *Critério de Pronto (Definition of Done)*, alinhado às práticas do framework Scrum, com critérios de execução de escopo, revisão por pares, qualidade do protótipo (sem erros críticos, conformidade com WCAG e LGPD), consistência dos artefatos e atualização da gestão ágil.
+- Organização e manutenção do quadro Kanban (Trello) do projeto, estruturando o backlog, as Sprints e a movimentação das tarefas até a coluna "Concluído".
+- Garantia de que atividades transversais (Engenharia de Requisitos, Arquitetura de Software, Modelagem UML e implementação das camadas do protótipo) só fossem encerradas após passar pelo processo de validação do DoD.
+- Acompanhamento da revisão por pares dos artefatos produzidos pela equipe, assegurando consistência técnica e redução de retrabalho ao longo do desenvolvimento.
 
 ## ✨ Funcionalidades
 
