@@ -4,7 +4,7 @@ LibrasFlow é uma aplicação web colaborativa para tradução e catalogação d
 
 ## 👥 Equipe e Divisão de Atividades
 
-### Lucca Mateo Rangel — Engenharia de Requisitos
+### Luca Mateo Rangel — Engenharia de Requisitos
 - Levantamento e especificação dos requisitos funcionais e não funcionais do sistema (tradução de sinais, dicionário de Libras, envio e curadoria de sinais, autenticação de usuários).
 - Definição das regras de negócio relacionadas à conformidade com a **LGPD**, incluindo consentimento de uso de imagem/vídeo, tratamento de dados de menores de idade (autorização de responsável legal) e fluxo de solicitação de exclusão de dados.
 - Elicitação dos casos de uso por perfil de usuário (usuário comum, curador, administrador).
