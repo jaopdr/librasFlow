@@ -47,9 +47,6 @@ LibrasFlow é uma aplicação web colaborativa para tradução e catalogação d
 - **[React Hook Form](https://react-hook-form.com/)** + **[Zod](https://zod.dev/)** — formulários e validação
 - **[TanStack Query](https://tanstack.com/query)** — gerenciamento de estado assíncrono
 - **[Framer Motion](https://www.framer.com/motion/)** — animações
-- **[Recharts](https://recharts.org/)** — gráficos
-- **[Stripe](https://stripe.com/)** — pagamentos
-- **[Three.js](https://threejs.org/)** — gráficos 3D
 - **ESLint** + **TypeScript (checking via jsconfig)** — qualidade de código
 
 ## 📁 Estrutura do Projeto
