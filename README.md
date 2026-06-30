@@ -82,11 +82,3 @@ npm run lint         # checagem de lint
 npm run lint:fix    # correção automática de lint
 npm run typecheck   # checagem de tipos
 ```
-
-## 🔐 Variáveis de Ambiente
-
-Configure os valores necessários em um arquivo `.env.local` (não versionado). Consulte a documentação do Base44 para as variáveis exigidas pelo SDK e pela integração com Stripe.
-
-## 📄 Licença
-
-Este projeto ainda não possui uma licença definida.
